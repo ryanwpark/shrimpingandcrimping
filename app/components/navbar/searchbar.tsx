@@ -1,8 +1,8 @@
 'use client';
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { styles } from '../styles/constants';
-import { ShrimpData } from '../data/ShrimpData';
+import { styles } from '../../styles/constants';
+import { ShrimpData } from '../../data/ShrimpData';
 import Link from 'next/link';
 
 type ShrimpProduct = {
@@ -62,10 +62,10 @@ const Searchbar = () => {
 
 	return (
 		<div className='flex space-x-2'>
-			<div className='flex-1 relative w-100'>
+			<div className='flex-1 relative w-120'>
 				<input
 					placeholder='Search...'
-					className={`${styles.searchInput}`}
+					className={`${styles.searchInput} bg-white`}
 					value={searchTerm}
 					onChange={(e) => setSearchTerm(e.target.value)}
 					onKeyDown={handleKeyPress}
@@ -73,14 +73,14 @@ const Searchbar = () => {
 					onBlur={() => setTimeout(() => setIsFocused(false), 200)}
 				/>
 				{!showResults && isFocused && searchTerm.trim() === '' && (
-					<div className='absolute top-full w-full bg-white border-2 border-orange-200 rounded-lg mt-1 max-h-60 z-50 shadow-lg'>
+					<div className='absolute top-full w-full bg-white border-2 border-orange-200 rounded-lg mt-1 max-h-60 z-50 shadow-lg transition-all'>
 						<div className='font-semibold text-center pt-2 text-yellow-500'>
 							Featured Products
 						</div>
 						{featuredResults.map((item) => (
 							<Link
 								key={item.product_id}
-								href={`/product-${item.name}`}>
+								href={`/product/${item.product_id}`}>
 								<div className='flex space-x-4 p-3 hover:bg-orange-100 border-b border-orange-100 cursor-pointer'>
 									<Image
 										src={`/${item.image_url}`}

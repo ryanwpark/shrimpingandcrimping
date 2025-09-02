@@ -4,7 +4,7 @@ import React from 'react';
 // import { motion } from 'framer-motion';
 import Search from './searchbar';
 import ShoppingCartPopup from './shoppingcartpopup';
-import { styles } from '../styles/constants';
+import { styles } from '../../styles/constants';
 
 const Navbar = () => {
 	return (
@@ -19,13 +19,13 @@ const Navbar = () => {
 						height={50}
 					/>
 				</Link>
-				<Link href='/mystory' className={styles.navLink}>
+				<Link href='/story' className={`${styles.navLink} px-2 py-1`}>
 					Story
 				</Link>
-				<Link href='/contact' className={styles.navLink}>
+				<Link href='/contact' className={`${styles.navLink} px-2 py-1`}>
 					Contact
 				</Link>
-				<Link href='/shop' className={styles.navLink}>
+				<Link href='/shop' className={`${styles.navLink} px-2 py-1`}>
 					Shop
 				</Link>
 			</div>
@@ -36,7 +36,9 @@ const Navbar = () => {
 			</div>
 
 			{/* Right section: Shopping Cart */}
-			<div className={`flex items-center hover:scale-120 transition-all`}>
+			<div
+				// className={`flex items-center p-2 rounded-xl hover:scale-120 hover:bg-white transition-all`}>
+				className={`${styles.navLink} p-2`}>
 				<ShoppingCartPopup />
 			</div>
 		</nav>

@@ -1,3 +1,15 @@
+export type ShrimpProduct = {
+	product_id: number;
+	name: string;
+	price_single: number;
+	price_ten: number;
+	image_url: string;
+	featured: boolean;
+	quantity: number;
+	stock: number;
+	sold: number;
+};
+
 export const ShrimpData = [
 	{
 		product_id: 1,
