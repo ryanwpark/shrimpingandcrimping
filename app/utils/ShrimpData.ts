@@ -24,7 +24,7 @@ export const ShrimpData = [
 	},
 	{
 		product_id: 2,
-		name: 'Medium Shrimp',
+		name: 'Medium Shrimp super super super super',
 		price_single: 3.99,
 		price_ten: 35,
 		image_url: 'shrimp2.webp',
@@ -387,7 +387,7 @@ export const ShrimpData = [
 	},
 	{
 		product_id: 35,
-		name: 'Red Tiger Shrimp',
+		name: 'Red Tiger super super super super Shrimp',
 		price_single: 8.19,
 		price_ten: 80,
 		image_url: 'shrimp8.webp',

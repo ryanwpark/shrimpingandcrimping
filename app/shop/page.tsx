@@ -3,7 +3,8 @@ import React, { useState, useMemo } from 'react';
 import Catalog from './components/Catalog';
 import Pagination from './components/Pagination';
 import Filter from './components/Filter';
-import { ShrimpData } from '../data/ShrimpData';
+import SectionHeader from './components/SectionHeader';
+import { ShrimpData } from '../utils/ShrimpData';
 import { useSearchParams } from 'next/navigation';
 
 const Shop = () => {
@@ -11,7 +12,7 @@ const Shop = () => {
 	const [filters, setFilters] = useState('none');
 
 	const currentPage = parseInt(searchParams.get('page') || '1');
-	const ITEMS_PER_PAGE = 16;
+	const ITEMS_PER_PAGE = 12;
 
 	// Apply filters and sorting
 	const filteredAndSortedData = useMemo(() => {
@@ -50,10 +51,33 @@ const Shop = () => {
 	const totalPages = Math.ceil(filteredAndSortedData.length / ITEMS_PER_PAGE);
 
 	return (
-		<div>
-			<Filter currentFilter={filters} onFilterChange={setFilters} />
-			<Catalog products={currentProducts} />
-			<Pagination currentPage={currentPage} totalPages={totalPages} />
+		<div className='min-h-screen bg-gray-50'>
+			{/* Section Header */}
+			<SectionHeader
+				title='Premium Aquarium Shrimp'
+				subtitle='Discover our carefully curated collection of beautiful and healthy shrimp for your aquarium'
+				itemCount={filteredAndSortedData.length}
+			/>
+
+			{/* Filters Section */}
+			<div className='w-full max-w-7xl mx-auto px-6 mb-8'>
+				<Filter currentFilter={filters} onFilterChange={setFilters} />
+			</div>
+
+			{/* Products Catalog */}
+			<div className='pb-12'>
+				<Catalog products={currentProducts} />
+			</div>
+
+			{/* Pagination */}
+			{totalPages > 1 && (
+				<div className='w-full max-w-7xl mx-auto px-6 pb-12'>
+					<Pagination
+						currentPage={currentPage}
+						totalPages={totalPages}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };

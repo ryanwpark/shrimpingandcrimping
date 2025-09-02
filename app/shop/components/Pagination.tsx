@@ -12,37 +12,47 @@ const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
 	const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
 	return (
-		<div className='flex justify-center space-x-1 mt-8'>
+		<div className='flex justify-center items-center space-x-2'>
 			{/* Previous button */}
-			{currentPage > 1 && (
+			{currentPage > 1 ? (
 				<Link
 					href={`/shop?page=${currentPage - 1}`}
-					className='px-3 py-2 bg-yellow-200 border border-yellow-200 border border-orange-200 rounded-xl hover:scale-110'>
-					Previous
+					className='px-4 py-2 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors text-gray-700 font-medium'>
+					← Previous
 				</Link>
+			) : (
+				<span className='px-4 py-2 bg-gray-100 text-gray-400 rounded-lg cursor-not-allowed'>
+					← Previous
+				</span>
 			)}
 
 			{/* Page numbers */}
-			{pages.map((page) => (
-				<Link
-					key={page}
-					href={`/shop?page=${page}`}
-					className={`px-3 py-2 border border-orange-200 rounded-xl ${
-						currentPage === page
-							? 'bg-gray-100 text-black scale-85'
-							: 'hover:scale-110 bg-white'
-					}`}>
-					{page}
-				</Link>
-			))}
+			<div className='flex space-x-1'>
+				{pages.map((page) => (
+					<Link
+						key={page}
+						href={`/shop?page=${page}`}
+						className={`px-3 py-2 rounded-lg transition-colors font-medium ${
+							currentPage === page
+								? 'bg-orange-500 text-white shadow-sm'
+								: 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
+						}`}>
+						{page}
+					</Link>
+				))}
+			</div>
 
 			{/* Next button */}
-			{currentPage < totalPages && (
+			{currentPage < totalPages ? (
 				<Link
 					href={`/shop?page=${currentPage + 1}`}
-					className='px-3 py-2  bg-yellow-200 border border-yellow-200 rounded-xl hover:scale-110'>
-					Next
+					className='px-4 py-2 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors text-gray-700 font-medium'>
+					Next →
 				</Link>
+			) : (
+				<span className='px-4 py-2 bg-gray-100 text-gray-400 rounded-lg cursor-not-allowed'>
+					Next →
+				</span>
 			)}
 		</div>
 	);

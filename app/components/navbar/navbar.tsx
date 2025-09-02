@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import Search from './searchbar';
-import ShoppingCartPopup from './shoppingcartpopup';
+import ResponsiveCart from './ResponsiveCart';
 import { styles } from '../../styles/constants';
 
 const Navbar = () => {
@@ -62,15 +62,13 @@ const Navbar = () => {
 				</div>
 
 				{/* Desktop Right: Shopping Cart */}
-				<div className={`hidden md:block ${styles.navLink} p-2`}>
-					<ShoppingCartPopup />
+				<div className={`hidden md:block`}>
+					<ResponsiveCart />
 				</div>
 
 				{/* Mobile Right:Cart + Hamburger */}
 				<div className='md:hidden flex items-center space-x-2'>
-					<div className={`${styles.navLink} p-2`}>
-						<ShoppingCartPopup />
-					</div>
+					<ResponsiveCart />
 					<button
 						className='p-2'
 						onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -81,7 +79,7 @@ const Navbar = () => {
 
 			{/* Mobile Menu */}
 			{isMobileMenuOpen && (
-				<div className='md:hidden mt-4 pb-4 border-t border-orange-200'>
+				<div className='md:hidden mt-4 pb-4 border-t border-black w-full'>
 					<div className='flex flex-col space-y-2 mt-4'>
 						<Link
 							href='/story'

@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { styles } from '../../styles/constants';
-import { ShrimpData } from '../../data/ShrimpData';
+import { ShrimpData } from '../../utils/ShrimpData';
 import Link from 'next/link';
 
 type ShrimpProduct = {

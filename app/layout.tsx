@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from './components/navbar/navbar';
 import { Suspense } from 'react';
+import { CartProvider } from './components/providers/CartProvider';
+import { ToastProvider } from './components/providers/ToastProvider';
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -29,11 +31,15 @@ export default function RootLayout({
 			<link rel='icon' href='/shrimplogo.png' />
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-				<header>
-					<Navbar />
-				</header>
-				<hr />
-				<Suspense>{children}</Suspense>
+				<CartProvider>
+					<ToastProvider>
+						<header>
+							<Navbar />
+						</header>
+						<hr />
+						<Suspense>{children}</Suspense>
+					</ToastProvider>
+				</CartProvider>
 			</body>
 		</html>
 	);

@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { ShrimpData, ShrimpProduct } from '../../data/ShrimpData';
+import { ShrimpData, ShrimpProduct } from '../../utils/ShrimpData';
 import { notFound } from 'next/navigation';
 import { use } from 'react';
 import Image from 'next/image';
