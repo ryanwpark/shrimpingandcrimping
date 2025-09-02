@@ -8,7 +8,7 @@ type CatalogProps = {
 };
 const Catalog = ({ products }: CatalogProps) => {
 	return (
-		<div className='grid grid-cols-4 gap-4 place-items-center w-1/2 h-1/2 mx-auto'>
+		<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full max-w-7xl mx-auto px-4'>
 			{products.map((product: ShrimpProduct) => (
 				<ProductCard key={product.product_id} product={product} />
 			))}

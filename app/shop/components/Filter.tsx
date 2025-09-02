@@ -23,21 +23,19 @@ const Filter = ({ currentFilter, onFilterChange }: FilterProps) => {
 	};
 
 	return (
-		<div className='flex space-x-4 p-4 justify-center'>
-			<div className='flex space-x-2'>
-				{Object.entries(FilterOptions).map(([key, label]) => (
-					<button
-						key={key}
-						onClick={() => handleSortChange(key)}
-						className={`px-4 py-2 rounded-xl ${
-							currentFilter === key
-								? 'bg-orange-500 text-white'
-								: `${styles.navLink}`
-						}`}>
-						{label}
-					</button>
-				))}
-			</div>
+		<div className='flex flex-wrap gap-2 p-4 justify-center'>
+			{Object.entries(FilterOptions).map(([key, label]) => (
+				<button
+					key={key}
+					onClick={() => handleSortChange(key)}
+					className={`px-2 py-1 md:px-4 md:py-2 rounded-xl text-sm md:text-base ${
+						currentFilter === key
+							? 'bg-orange-500 text-white'
+							: `${styles.navLink}`
+					}`}>
+					{label}
+				</button>
+			))}
 		</div>
 	);
 };
