@@ -40,11 +40,6 @@ const Navbar = () => {
 						/>
 					</Link>
 					<Link
-						href='/story'
-						className={`${styles.navLink} px-2 py-1`}>
-						Story
-					</Link>
-					<Link
 						href='/contact'
 						className={`${styles.navLink} px-2 py-1`}>
 						Contact
@@ -81,12 +76,6 @@ const Navbar = () => {
 			{isMobileMenuOpen && (
 				<div className='md:hidden mt-4 pb-4 border-t border-black w-full'>
 					<div className='flex flex-col space-y-2 mt-4'>
-						<Link
-							href='/story'
-							className={`${styles.navLink} px-2 py-1 text-center`}
-							onClick={() => setIsMobileMenuOpen(false)}>
-							Story
-						</Link>
 						<Link
 							href='/contact'
 							className={`${styles.navLink} px-2 py-1 text-center`}
